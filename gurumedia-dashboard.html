@@ -1,0 +1,630 @@
+<title>GuruMedia Garimpo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap">
+<style>
+:root {
+  --bg: #f6f5f2;
+  --surface: #ffffff;
+  --fg: #1a1a1a;
+  --fg2: #5a5a5a;
+  --accent: #e85d26;
+  --accent2: #2563eb;
+  --green: #16a34a;
+  --yellow: #d97706;
+  --red: #dc2626;
+  --border: #e5e3de;
+  --badge-bg: #f0eeea;
+  --score-high: #16a34a;
+  --score-mid: #d97706;
+  --score-low: #9ca3af;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111110;
+    --surface: #1c1c1a;
+    --fg: #e8e6e1;
+    --fg2: #9a9890;
+    --accent: #f07040;
+    --accent2: #60a5fa;
+    --green: #4ade80;
+    --yellow: #fbbf24;
+    --red: #f87171;
+    --border: #2a2a28;
+    --badge-bg: #252523;
+    --score-high: #4ade80;
+    --score-mid: #fbbf24;
+    --score-low: #6b7280;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111110;
+  --surface: #1c1c1a;
+  --fg: #e8e6e1;
+  --fg2: #9a9890;
+  --accent: #f07040;
+  --accent2: #60a5fa;
+  --green: #4ade80;
+  --yellow: #fbbf24;
+  --red: #f87171;
+  --border: #2a2a28;
+  --badge-bg: #252523;
+  --score-high: #4ade80;
+  --score-mid: #fbbf24;
+  --score-low: #6b7280;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  margin: 0;
+  padding-block: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }
+
+.header {
+  padding: 28px 0 20px;
+  border-bottom: 2px solid var(--accent);
+  margin-bottom: 20px;
+}
+.header h1 {
+  font-family: var(--font-mono);
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin: 0 0 4px;
+  letter-spacing: -0.5px;
+  color: var(--accent);
+}
+.header p {
+  color: var(--fg2);
+  font-size: 0.85rem;
+  margin: 0;
+}
+.header .stats-row {
+  display: flex;
+  gap: 20px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.stat-chip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-chip .num {
+  font-family: var(--font-mono);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.stat-chip .label {
+  font-size: 0.72rem;
+  color: var(--fg2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.controls input[type="text"] {
+  flex: 1;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+.controls input[type="text"]::placeholder { color: var(--fg2); }
+.controls select {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.pill-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.pill {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--fg2);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.pill:hover { border-color: var(--accent); color: var(--accent); }
+.pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+.results-info {
+  font-size: 0.8rem;
+  color: var(--fg2);
+  margin-bottom: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.15s;
+  position: relative;
+}
+.card:hover { border-color: var(--accent); }
+.card.is-new::after {
+  content: 'NOVO';
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.card-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  min-width: 0;
+}
+.card-score {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.score-high { background: color-mix(in srgb, var(--score-high) 15%, transparent); color: var(--score-high); }
+.score-mid { background: color-mix(in srgb, var(--score-mid) 15%, transparent); color: var(--score-mid); }
+.score-low { background: color-mix(in srgb, var(--score-low) 15%, transparent); color: var(--score-low); }
+
+.card-meta {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cat-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--badge-bg);
+  color: var(--fg2);
+  white-space: nowrap;
+}
+.cat-health { color: var(--green); background: color-mix(in srgb, var(--green) 10%, var(--badge-bg)); }
+.cat-ecom { color: var(--accent2); background: color-mix(in srgb, var(--accent2) 10%, var(--badge-bg)); }
+.cat-diet { color: var(--yellow); background: color-mix(in srgb, var(--yellow) 10%, var(--badge-bg)); }
+.cat-male { color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--badge-bg)); }
+
+.card-geos {
+  font-size: 0.75rem;
+  color: var(--fg2);
+  line-height: 1.6;
+}
+.geo-flag {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.card-tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--badge-bg);
+  color: var(--fg2);
+  font-weight: 500;
+}
+.tag-vsl { color: var(--green); background: color-mix(in srgb, var(--green) 10%, var(--badge-bg)); }
+.tag-checkout { color: var(--accent2); background: color-mix(in srgb, var(--accent2) 10%, var(--badge-bg)); }
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--fg2);
+}
+.variants-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.comp-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+.comp-low { color: var(--green); }
+.comp-med { color: var(--yellow); }
+.comp-high { color: var(--red); }
+.comp-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.comp-low .comp-dot { background: var(--green); }
+.comp-med .comp-dot { background: var(--yellow); }
+.comp-high .comp-dot { background: var(--red); }
+
+.opp-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.opp-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.footer {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: var(--fg2);
+  text-align: center;
+}
+
+@media (max-width: 500px) {
+  .grid { grid-template-columns: 1fr; }
+  .controls { flex-direction: column; }
+  .controls input[type="text"] { width: 100%; }
+}
+</style>
+
+<div class="header">
+  <h1>// GURUMEDIA GARIMPO</h1>
+  <p>Dashboard de oportunidades — Ofertas dos ultimos 30 dias com pontuacao</p>
+  <div class="stats-row" id="stats-row"></div>
+</div>
+
+<div class="controls">
+  <input type="text" id="search" placeholder="Buscar produto...">
+  <select id="sort">
+    <option value="opportunity">Oportunidade</option>
+    <option value="score">Maior Score</option>
+    <option value="geos">Mais Geos</option>
+    <option value="variants">Mais Variantes</option>
+    <option value="newest">Mais Recente</option>
+  </select>
+  <select id="geo-filter">
+    <option value="">Todos os Geos</option>
+    <option value="US">US</option>
+    <option value="UK">UK</option>
+    <option value="CA">CA</option>
+    <option value="AU">AU</option>
+    <option value="DE">DE</option>
+    <option value="FR">FR</option>
+    <option value="BR">BR</option>
+    <option value="NL">NL</option>
+    <option value="IT">IT</option>
+    <option value="ES">ES</option>
+    <option value="PT">PT</option>
+    <option value="MX">MX</option>
+    <option value="IE">IE</option>
+    <option value="SE">SE</option>
+    <option value="FI">FI</option>
+    <option value="DK">DK</option>
+    <option value="NO">NO</option>
+  </select>
+</div>
+
+<div class="pill-row" id="cat-pills"></div>
+<div class="results-info" id="results-info"></div>
+<div class="grid" id="grid"></div>
+
+<div class="footer">
+  GuruMedia Garimpo — Dados extraidos em 06/11/2026 — ~230 ofertas · 106 produtos unicos · 15 novos hoje
+</div>
+
+<script>
+const GEO_FLAGS = {US:'\u{1F1FA}\u{1F1F8}',UK:'\u{1F1EC}\u{1F1E7}',CA:'\u{1F1E8}\u{1F1E6}',AU:'\u{1F1E6}\u{1F1FA}',NZ:'\u{1F1F3}\u{1F1FF}',IE:'\u{1F1EE}\u{1F1EA}',DE:'\u{1F1E9}\u{1F1EA}',FR:'\u{1F1EB}\u{1F1F7}',IT:'\u{1F1EE}\u{1F1F9}',ES:'\u{1F1EA}\u{1F1F8}',NL:'\u{1F1F3}\u{1F1F1}',BE:'\u{1F1E7}\u{1F1EA}',AT:'\u{1F1E6}\u{1F1F9}',CH:'\u{1F1E8}\u{1F1ED}',SE:'\u{1F1F8}\u{1F1EA}',DK:'\u{1F1E9}\u{1F1F0}',FI:'\u{1F1EB}\u{1F1EE}',NO:'\u{1F1F3}\u{1F1F4}',PT:'\u{1F1F5}\u{1F1F9}',GR:'\u{1F1EC}\u{1F1F7}',MX:'\u{1F1F2}\u{1F1FD}',BR:'\u{1F1E7}\u{1F1F7}',ZA:'\u{1F1FF}\u{1F1E6}',IL:'\u{1F1EE}\u{1F1F1}',AR:'\u{1F1E6}\u{1F1F7}',CL:'\u{1F1E8}\u{1F1F1}',LU:'\u{1F1F1}\u{1F1FA}',SG:'\u{1F1F8}\u{1F1EC}',PR:'\u{1F1F5}\u{1F1F7}'};
+
+const COMPETITION = {"RepelMate": "low", "Revo Smart Cupper Massager": "low", "CubbyWatch": "low", "Rustifix": "low", "ZapiTrap": "low", "Elementa Labs AquaThrive LX Marine Mineral Complex": "low", "Honey Vital": "med", "GLP5 GLT": "low", "Tirze Plus": "low", "Hewelth Herbal Knee Patch": "low", "Testo Blue": "low", "HoneyBoost": "med", "Hewelth CoreThermo": "low", "Shirem Christmas 3D Illusion Rug": "low", "Shirem HaloDrop": "low", "Shirem Winterfall Glow": "low", "Shirem Railside Snowman": "low", "Shirem Stillwing Hummingbird Lamp": "low", "Near Future Report": "med", "MusqleON": "low", "Cardionix": "med", "Adem Naturals ProvaDent": "high", "Heatomi": "med", "Arctic Blast": "high", "Nitric Boost Ultra": "high", "AquaPeace": "high", "Adem Naturals TC24 Total Control 24": "med", "Gutera": "low", "Chart Wis": "low", "PetMade Omega 3 Plus Formula": "low", "ZeroWattic": "low", "ClickFree": "low", "Claus Keepsakes Living Memory Crystal": "low", "PureHealth Research ProFlowPlus": "low", "GlucoLife Plus Blood Sugar Support": "low", "GlucoLife Plus Blood Pressure": "low", "EverFaith Hair Formula Plus": "low", "Nature's Blast HairVive": "low", "Vitarax MetaBurn": "low", "KetoNex Gummies": "low", "Claus Keepsakes Christmas Memory Bottle": "low", "Holly Heirlooms Stained Glass Suncatcher": "low", "Glokore Skin Transformer Wand": "low", "Glokore Red Light Renew Wand": "low", "Boost Surge X": "low", "Prosta Surge X": "low", "Nature's Blast SightMax": "med", "PureHealth Research PuriZen": "med", "PureHealth Research Gastro Health": "med", "PureHealth Research CL Balance": "med", "PureHealth Research Curbfit": "med", "Prime Man Male Enhancement Gummies": "low", "PureHealth Research Exuberant": "med", "TitanPrime": "low", "UroVita Care Flora Guard": "low", "Arthryon Heat Relief Cream": "low", "PureHealth Research Liver Health": "high", "Nation Health MD Cognilux": "med", "PureHealth Research Curcumin Extract": "high", "PureHealth Research Fungus Eliminator": "high", "Ultra Air Heater": "med", "StopWatt": "high", "Nature's Blast Lymph Go": "low", "Nature's Blast CogniCharge": "low", "PureHealth Research Lymph System Support": "med", "SlimJara": "med", "Chaikin Analytics Frontier AI": "high", "Joint Vive": "high", "Cardio Defend": "high", "MixMate Self Stirring Mug": "med", "Breeker Car Window Breaker": "med", "Qinux Aerquos": "low", "NerveGenics": "med", "Hewelth ThermaEase Pro": "med", "SheremArt Cardinal Lamp": "low", "Hewelth OptiReaders Pro": "low", "Omnipurge": "low", "Uro Fortis": "low", "Glumentrol": "low", "iGenics": "high", "FitSpresso": "high", "Aurevia Lean Force": "low", "American Vitality GlucoAlign": "low", "Burn Gummy": "low", "Cardian The Safe Card": "low", "X-All Multipurpose Cleaning Tablets": "low", "Glokore IPL Hair Remover": "low", "Grounded Footwear": "low", "ColonBroom GLP1": "med", "Manna Liposomal Collagen Peptides": "low", "Novu Metabolic Drops": "low", "Shirem ProShaver": "low", "Dr. Nore HydroPeptin-5": "low", "Nuviva": "low", "Pb-Sin 18 Diet Supplements": "med", "Arterix Blood Support Capsules": "med", "Turmerin Plus": "low", "Qinux ScalPurex": "low", "HeatGuard Gloves": "med", "MetaBrew Diet Coffee": "med", "Fitralin": "high", "AquaBurn": "high", "Whispeara": "high", "Nitric Drive": "high", "NutraVille MoveWell Daily": "high", "Dermafiller": "low"};
+
+const NEW_PRODUCTS = new Set(["Shirem ProShaver","Dr. Nore HydroPeptin-5","Nuviva","Pb-Sin 18 Diet Supplements","Arterix Blood Support Capsules","Turmerin Plus","Qinux ScalPurex","HeatGuard Gloves","MetaBrew Diet Coffee","Fitralin","AquaBurn","Whispeara","Nitric Drive","NutraVille MoveWell Daily","Dermafiller"]);
+
+const PRODUCTS = [
+{"name": "Qinux Aerquos", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34409, "score": 190, "geoCount": 25},
+{"name": "MixMate Self Stirring Mug", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "Checkout Event Tracking", "offerCount": 2, "newestId": 34413, "score": 198, "geoCount": 26},
+{"name": "Breeker Car Window Breaker", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34411, "score": 190, "geoCount": 25},
+{"name": "SheremArt Cardinal Lamp", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,ZA", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34412, "score": 175, "geoCount": 22},
+{"name": "NerveGenics", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34417, "score": 188, "geoCount": 26},
+{"name": "Hewelth OptiReaders Pro", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34416, "score": 170, "geoCount": 21},
+{"name": "Joint Vive", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "VSL", "offerCount": 1, "newestId": 34420, "score": 198, "geoCount": 26},
+{"name": "Cardio Defend", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "VSL", "offerCount": 1, "newestId": 34419, "score": 198, "geoCount": 26},
+{"name": "Hewelth ThermaEase Pro", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,ZA", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34414, "score": 175, "geoCount": 22},
+{"name": "Chaikin Analytics Frontier AI", "cat": "Biz Opp", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "VSL", "offerCount": 1, "newestId": 34415, "score": 183, "geoCount": 26},
+{"name": "RepelMate", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 2, "newestId": 34338, "score": 138, "geoCount": 15},
+{"name": "Revo Smart Cupper Massager", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34312, "score": 125, "geoCount": 13},
+{"name": "CubbyWatch", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34002, "score": 125, "geoCount": 15},
+{"name": "Rustifix", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34001, "score": 125, "geoCount": 15},
+{"name": "ZapiTrap", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34000, "score": 125, "geoCount": 15},
+{"name": "Elementa Labs AquaThrive LX Marine Mineral Complex", "cat": "Health", "geos": "UK,IE,SE,NL,IT,FR,FI,ES,DK,DE,AT,CH,NO", "tags": "Direct Checkout,Localized", "offerCount": 8, "newestId": 34370, "score": 124, "geoCount": 13},
+{"name": "Honey Vital", "cat": "Health", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "VSL,Checkout Event Tracking", "offerCount": 1, "newestId": 33991, "score": 138, "geoCount": 15},
+{"name": "GLP5 GLT", "cat": "Nutra / Diet", "geos": "UK,IE,SE,PT,NL,BE,IT,FR,FI,ES,DK,DE,AT,CH,NO", "tags": "Localized", "offerCount": 14, "newestId": 34185, "score": 123, "geoCount": 15},
+{"name": "Tirze Plus", "cat": "Nutra / Diet", "geos": "UK,IE,SE,PT,NL,BE,IT,FR,FI,ES,DK,DE,AT,CH,NO", "tags": "Localized", "offerCount": 14, "newestId": 34148, "score": 123, "geoCount": 15},
+{"name": "Hewelth Herbal Knee Patch", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34401, "score": 123, "geoCount": 13},
+{"name": "Omnipurge", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34406, "score": 123, "geoCount": 13},
+{"name": "Testo Blue", "cat": "Nutra / Male", "geos": "UK,IE,SE,PT,NL,BE,IT,FR,FI,ES,DK,DE,AT,CH,NO", "tags": "Localized", "offerCount": 14, "newestId": 34166, "score": 121, "geoCount": 15},
+{"name": "HoneyBoost", "cat": "Nutra / Male", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "VSL,Checkout Event Tracking", "offerCount": 1, "newestId": 33992, "score": 134, "geoCount": 15},
+{"name": "Hewelth CoreThermo", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34337, "score": 120, "geoCount": 12},
+{"name": "Shirem Christmas 3D Illusion Rug", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34336, "score": 120, "geoCount": 12},
+{"name": "Shirem HaloDrop", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34335, "score": 120, "geoCount": 12},
+{"name": "Shirem Winterfall Glow", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34334, "score": 120, "geoCount": 12},
+{"name": "Shirem Railside Snowman", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34333, "score": 120, "geoCount": 12},
+{"name": "Shirem Stillwing Hummingbird Lamp", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34332, "score": 120, "geoCount": 12},
+{"name": "Near Future Report", "cat": "Biz Opp", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "VSL", "offerCount": 2, "newestId": 34301, "score": 131, "geoCount": 15},
+{"name": "MusqleON", "cat": "Nutra / Male", "geos": "UK,SE,PT,NO,NL,IT,IE,FR,FI,ES,DK,DE,AT,CH", "tags": "Localized", "offerCount": 14, "newestId": 33950, "score": 116, "geoCount": 14},
+{"name": "Cardionix", "cat": "Health", "geos": "UK,SE,PT,NL,BE,IT,IE,FR,FI,ES,DK,DE,AT,CH", "tags": "Checkout Event Tracking,Localized", "offerCount": 24, "newestId": 34101, "score": 130, "geoCount": 14},
+{"name": "Adem Naturals ProvaDent", "cat": "Health", "geos": "US,UK,AU,DE,FR,NL,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "VSL,Checkout Event Tracking", "offerCount": 2, "newestId": 33962, "score": 141, "geoCount": 15},
+{"name": "Heatomi", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34313, "score": 125, "geoCount": 13},
+{"name": "Arctic Blast", "cat": "Health", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,ZA,IL,AR", "tags": "VSL", "offerCount": 1, "newestId": 34315, "score": 138, "geoCount": 15},
+{"name": "Uro Fortis", "cat": "Nutra / Male", "geos": "UK,IE,SE,PT,NL,BE,IT,FR,FI,ES,DK", "tags": "Localized", "offerCount": 6, "newestId": 34428, "score": 104, "geoCount": 11},
+{"name": "Glumentrol", "cat": "Health", "geos": "UK,IE,SE,PT,NL,BE,IT,FR,FI,ES", "tags": "Direct Checkout,Localized", "offerCount": 4, "newestId": 34430, "score": 102, "geoCount": 10},
+{"name": "Nitric Boost Ultra", "cat": "Nutra / Male", "geos": "US,UK,CA,AU,DE,FR,BE,AT,CH,SE,PT,GR,AR", "tags": "VSL,Checkout Event Tracking", "offerCount": 1, "newestId": 33960, "score": 124, "geoCount": 13},
+{"name": "Aurevia Lean Force", "cat": "Nutra / Diet", "geos": "UK,IE,SE,DE,AT,CH,FR,NL,BE", "tags": "Direct Checkout,Localized", "offerCount": 3, "newestId": 34425, "score": 92, "geoCount": 9},
+{"name": "AquaPeace", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,SE", "tags": "VSL,Checkout Event Tracking", "offerCount": 1, "newestId": 34378, "score": 108, "geoCount": 7},
+{"name": "Adem Naturals TC24 Total Control 24", "cat": "Nutra / Male", "geos": "US,UK,CA,AU,NZ,SE", "tags": "VSL,Checkout Event Tracking", "offerCount": 1, "newestId": 33954, "score": 89, "geoCount": 6},
+{"name": "Gutera", "cat": "Health", "geos": "FI,UK,SE,DK", "tags": "Direct Checkout", "offerCount": 4, "newestId": 34380, "score": 67, "geoCount": 4},
+{"name": "iGenics", "cat": "Health", "geos": "US,UK,NZ,CA,AU", "tags": "VSL", "offerCount": 1, "newestId": 34429, "score": 93, "geoCount": 5},
+{"name": "American Vitality GlucoAlign", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34418, "score": 63, "geoCount": 1},
+{"name": "FitSpresso", "cat": "Nutra / Diet", "geos": "US,UK,CA,AU,NZ", "tags": "VSL", "offerCount": 1, "newestId": 34421, "score": 91, "geoCount": 5},
+{"name": "Burn Gummy", "cat": "Nutra / Diet", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34422, "score": 61, "geoCount": 1},
+{"name": "Chart Wis", "cat": "eCommerce / Product", "geos": "US,SE", "tags": "Paypal,Checkout Event Tracking", "offerCount": 1, "newestId": 34379, "score": 60, "geoCount": 2},
+{"name": "PetMade Omega 3 Plus Formula", "cat": "eCommerce / Product", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34397, "score": 60, "geoCount": 1},
+{"name": "Cardian The Safe Card", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34408, "score": 60, "geoCount": 1},
+{"name": "X-All Multipurpose Cleaning Tablets", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34407, "score": 60, "geoCount": 1},
+{"name": "Glokore IPL Hair Remover", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34426, "score": 60, "geoCount": 1},
+{"name": "Grounded Footwear", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34431, "score": 60, "geoCount": 1},
+{"name": "Nature's Blast Lymph Go", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34403, "score": 58, "geoCount": 1},
+{"name": "ZeroWattic", "cat": "eCommerce / Product", "geos": "US,CA,SE,MX", "tags": "Direct Checkout", "offerCount": 1, "newestId": 33957, "score": 55, "geoCount": 4},
+{"name": "ClickFree", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34381, "score": 55, "geoCount": 1},
+{"name": "Claus Keepsakes Living Memory Crystal", "cat": "eCommerce / Product", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34386, "score": 55, "geoCount": 1},
+{"name": "PureHealth Research ProFlowPlus", "cat": "Nutra / Male", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34393, "score": 54, "geoCount": 1},
+{"name": "Manna Liposomal Collagen Peptides", "cat": "Nutra / Skin", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34427, "score": 53, "geoCount": 1},
+{"name": "PureHealth Research Lymph System Support", "cat": "Health", "geos": "US,ES", "tags": "VSL", "offerCount": 2, "newestId": 34405, "score": 66, "geoCount": 2},
+{"name": "Novu Metabolic Drops", "cat": "Nutra / Diet", "geos": "US", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34423, "score": 51, "geoCount": 1},
+{"name": "GlucoLife Plus Blood Sugar Support", "cat": "Health", "geos": "UK,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34376, "score": 48, "geoCount": 2},
+{"name": "GlucoLife Plus Blood Pressure", "cat": "Health", "geos": "UK,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34375, "score": 48, "geoCount": 2},
+{"name": "EverFaith Hair Formula Plus", "cat": "Nutra / Hair", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34392, "score": 48, "geoCount": 1},
+{"name": "Nature's Blast HairVive", "cat": "Nutra / Hair", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34396, "score": 48, "geoCount": 1},
+{"name": "Nature's Blast CogniCharge", "cat": "Nutra / Brain", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34404, "score": 48, "geoCount": 1},
+{"name": "Vitarax MetaBurn", "cat": "Nutra / Diet", "geos": "US,SE", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 33959, "score": 46, "geoCount": 2},
+{"name": "KetoNex Gummies", "cat": "Nutra / Diet", "geos": "UK,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34371, "score": 46, "geoCount": 2},
+{"name": "Claus Keepsakes Christmas Memory Bottle", "cat": "eCommerce / Product", "geos": "US", "tags": "", "offerCount": 1, "newestId": 34387, "score": 45, "geoCount": 1},
+{"name": "Holly Heirlooms Stained Glass Suncatcher", "cat": "eCommerce / Product", "geos": "US", "tags": "", "offerCount": 1, "newestId": 34388, "score": 45, "geoCount": 1},
+{"name": "Glokore Skin Transformer Wand", "cat": "eCommerce / Product", "geos": "US", "tags": "", "offerCount": 1, "newestId": 34389, "score": 45, "geoCount": 1},
+{"name": "Glokore Red Light Renew Wand", "cat": "eCommerce / Product", "geos": "US", "tags": "", "offerCount": 1, "newestId": 34390, "score": 45, "geoCount": 1},
+{"name": "Boost Surge X", "cat": "Nutra / Male", "geos": "US,SE", "tags": "V2,Checkout Event Tracking", "offerCount": 1, "newestId": 33953, "score": 44, "geoCount": 2},
+{"name": "Prosta Surge X", "cat": "Nutra / Male", "geos": "US,SE", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 33952, "score": 44, "geoCount": 2},
+{"name": "Nature's Blast SightMax", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34391, "score": 58, "geoCount": 1},
+{"name": "PureHealth Research PuriZen", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34394, "score": 58, "geoCount": 1},
+{"name": "PureHealth Research Gastro Health", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34398, "score": 58, "geoCount": 1},
+{"name": "PureHealth Research CL Balance", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34400, "score": 58, "geoCount": 1},
+{"name": "PureHealth Research Curbfit", "cat": "Nutra / Diet", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34383, "score": 56, "geoCount": 1},
+{"name": "Prime Man Male Enhancement Gummies", "cat": "Nutra / Male", "geos": "NL,SE,MX", "tags": "Direct Checkout,Localized", "offerCount": 2, "newestId": 34374, "score": 42, "geoCount": 3},
+{"name": "ColonBroom GLP1", "cat": "Nutra / Diet", "geos": "US,CA", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34424, "score": 56, "geoCount": 2},
+{"name": "PureHealth Research Exuberant", "cat": "Nutra / Male", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34384, "score": 54, "geoCount": 1},
+{"name": "TitanPrime", "cat": "Nutra / Male", "geos": "US", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 33951, "score": 39, "geoCount": 1},
+{"name": "UroVita Care Flora Guard", "cat": "Nutra / Women", "geos": "UK,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34377, "score": 38, "geoCount": 2},
+{"name": "Arthryon Heat Relief Cream", "cat": "Health", "geos": "SE,NO", "tags": "Direct Checkout,Localized,V2", "offerCount": 1, "newestId": 34372, "score": 38, "geoCount": 2},
+{"name": "Nation Health MD Cognilux", "cat": "Nutra / Brain", "geos": "US", "tags": "VSL", "offerCount": 2, "newestId": 34382, "score": 51, "geoCount": 1},
+{"name": "PureHealth Research Liver Health", "cat": "Health", "geos": "FR,US", "tags": "VSL", "offerCount": 2, "newestId": 34399, "score": 66, "geoCount": 2},
+{"name": "PureHealth Research Curcumin Extract", "cat": "Health", "geos": "US", "tags": "VSL", "offerCount": 1, "newestId": 34395, "score": 58, "geoCount": 1},
+{"name": "PureHealth Research Fungus Eliminator", "cat": "Nutra / Skin", "geos": "US,ES", "tags": "VSL", "offerCount": 2, "newestId": 34385, "score": 56, "geoCount": 2},
+{"name": "SlimJara", "cat": "Nutra / Diet", "geos": "DE,AT,CH", "tags": "", "offerCount": 1, "newestId": 34410, "score": 36, "geoCount": 3},
+{"name": "Ultra Air Heater", "cat": "eCommerce / Product", "geos": "DE,FR,SE", "tags": "Localized", "offerCount": 1, "newestId": 33955, "score": 30, "geoCount": 3},
+{"name": "StopWatt", "cat": "eCommerce / Product", "geos": "US,SE", "tags": "", "offerCount": 1, "newestId": 33956, "score": 40, "geoCount": 2},
+{"name": "Shirem ProShaver", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,ZA,IL,AR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34450, "score": 175, "geoCount": 22},
+{"name": "Dr. Nore HydroPeptin-5", "cat": "Nutra / Skin", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,ZA,IL", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34445, "score": 158, "geoCount": 21},
+{"name": "Nuviva", "cat": "Health", "geos": "CH,DE,AT,FR,BE,IT,ES,PT", "tags": "Checkout Event Tracking,Localized", "offerCount": 12, "newestId": 34440, "score": 105, "geoCount": 8},
+{"name": "Pb-Sin 18 Diet Supplements", "cat": "Nutra / Diet", "geos": "UK,NO,SE,NL,FR,FI,DK,DE,AT,CH,BE", "tags": "Localized", "offerCount": 10, "newestId": 34435, "score": 118, "geoCount": 11},
+{"name": "Arterix Blood Support Capsules", "cat": "Health", "geos": "NO,DK", "tags": "Direct Checkout,Localized", "offerCount": 2, "newestId": 34455, "score": 46, "geoCount": 2},
+{"name": "Turmerin Plus", "cat": "Health", "geos": "DE,UK,FR,BE,AT,CH,NL,IT,ES,SE", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34438, "score": 93, "geoCount": 10},
+{"name": "Qinux ScalPurex", "cat": "eCommerce / Product", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,ZA,IL,IT,ES", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34452, "score": 180, "geoCount": 23},
+{"name": "HeatGuard Gloves", "cat": "eCommerce / Product", "geos": "FR", "tags": "Checkout Event Tracking", "offerCount": 1, "newestId": 34460, "score": 45, "geoCount": 1},
+{"name": "MetaBrew Diet Coffee", "cat": "Nutra / Diet", "geos": "DE", "tags": "", "offerCount": 1, "newestId": 34448, "score": 31, "geoCount": 1},
+{"name": "Fitralin", "cat": "Nutra / Diet", "geos": "FR", "tags": "Direct Checkout", "offerCount": 1, "newestId": 34456, "score": 36, "geoCount": 1},
+{"name": "AquaBurn", "cat": "Nutra / Diet", "geos": "US,AU,CA,NZ", "tags": "VSL", "offerCount": 1, "newestId": 34442, "score": 76, "geoCount": 4},
+{"name": "Whispeara", "cat": "Health", "geos": "US,UK,CA,AU,AT,BE,DK,FI,FR,DE,IT,LU,NL,NO,SG,ES,SE,CH", "tags": "", "offerCount": 1, "newestId": 34446, "score": 143, "geoCount": 18},
+{"name": "Nitric Drive", "cat": "Nutra / Male", "geos": "US,UK,CA,AU,AT,BE,BR,DK,FI,FR,DE,GR,IT,MX,NL,NZ,NO,PT,ES,SE,CH,AR,PR", "tags": "VSL", "offerCount": 1, "newestId": 34443, "score": 179, "geoCount": 23},
+{"name": "NutraVille MoveWell Daily", "cat": "Health", "geos": "US,UK,CA,AU,NZ,IE,DE,FR,IT,ES,NL,BE,AT,CH,SE,DK,FI,NO,PT,GR,MX,BR,ZA,IL,AR,CL", "tags": "VSL", "offerCount": 1, "newestId": 34444, "score": 198, "geoCount": 26},
+{"name": "Dermafiller", "cat": "Nutra / Skin", "geos": "US", "tags": "", "offerCount": 1, "newestId": 34447, "score": 38, "geoCount": 1}
+];
+
+// Calculate opportunity score
+PRODUCTS.forEach(p => {
+  const comp = COMPETITION[p.name] || 'unknown';
+  let compScore = comp === 'low' ? 30 : comp === 'med' ? 15 : comp === 'high' ? 0 : 10;
+  p.competition = comp;
+  p.opportunity = Math.round((p.score + compScore) / 1.7);
+  p.isNew = NEW_PRODUCTS.has(p.name);
+});
+
+const categories = [...new Set(PRODUCTS.map(p => p.cat))].sort();
+let activeCategory = '';
+let searchTerm = '';
+let sortBy = 'opportunity';
+let geoFilter = '';
+
+function getCatClass(cat) {
+  if (cat.includes('Health')) return 'cat-health';
+  if (cat.includes('eCommerce')) return 'cat-ecom';
+  if (cat.includes('Diet') || cat.includes('Brain') || cat.includes('Skin') || cat.includes('Hair')) return 'cat-diet';
+  if (cat.includes('Male') || cat.includes('Women')) return 'cat-male';
+  return '';
+}
+
+function getScoreClass(score) {
+  if (score >= 110) return 'score-high';
+  if (score >= 70) return 'score-mid';
+  return 'score-low';
+}
+
+function renderGeos(geosStr) {
+  return geosStr.split(',').map(g => {
+    const flag = GEO_FLAGS[g] || g;
+    return '<span class="geo-flag" title="' + g + '">' + flag + '</span>';
+  }).join('');
+}
+
+function renderTags(tagsStr) {
+  if (!tagsStr) return '';
+  return tagsStr.split(',').map(t => {
+    let cls = 'tag';
+    if (t.includes('VSL')) cls += ' tag-vsl';
+    if (t.includes('Checkout')) cls += ' tag-checkout';
+    return '<span class="' + cls + '">' + t.trim() + '</span>';
+  }).join('');
+}
+
+function renderCard(p) {
+  const compCls = p.competition === 'low' ? 'comp-low' : p.competition === 'med' ? 'comp-med' : 'comp-high';
+  const compLabel = p.competition === 'low' ? 'Baixa' : p.competition === 'med' ? 'Media' : p.competition === 'high' ? 'Alta' : '?';
+  const oppPct = Math.min(100, Math.round(p.opportunity * 1.1));
+  const oppColor = oppPct >= 70 ? 'var(--green)' : oppPct >= 45 ? 'var(--yellow)' : 'var(--score-low)';
+  const newCls = p.isNew ? ' is-new' : '';
+
+  return '<div class="card' + newCls + '">' +
+    '<div class="card-head">' +
+      '<span class="card-name">' + p.name + '</span>' +
+      '<span class="card-score ' + getScoreClass(p.score) + '">' + p.score + '</span>' +
+    '</div>' +
+    '<div class="card-meta">' +
+      '<span class="cat-badge ' + getCatClass(p.cat) + '">' + p.cat + '</span>' +
+      '<span class="variants-badge">' + p.offerCount + (p.offerCount > 1 ? ' variantes' : ' variante') + '</span>' +
+    '</div>' +
+    '<div class="card-geos">' + renderGeos(p.geos) + '</div>' +
+    '<div class="card-tags">' + renderTags(p.tags) + '</div>' +
+    '<div class="opp-bar"><div class="opp-fill" style="width:' + oppPct + '%;background:' + oppColor + '"></div></div>' +
+    '<div class="card-bottom">' +
+      '<span class="comp-indicator ' + compCls + '"><span class="comp-dot"></span> Concorrencia ' + compLabel + '</span>' +
+      '<span style="font-family:var(--font-mono);font-weight:700;color:' + oppColor + '">OPP ' + p.opportunity + '%</span>' +
+    '</div>' +
+  '</div>';
+}
+
+function render() {
+  let filtered = PRODUCTS.filter(p => {
+    if (activeCategory && p.cat !== activeCategory) return false;
+    if (searchTerm && !p.name.toLowerCase().includes(searchTerm.toLowerCase())) return false;
+    if (geoFilter && !p.geos.includes(geoFilter)) return false;
+    return true;
+  });
+
+  if (sortBy === 'score') filtered.sort((a,b) => b.score - a.score);
+  else if (sortBy === 'geos') filtered.sort((a,b) => b.geoCount - a.geoCount);
+  else if (sortBy === 'variants') filtered.sort((a,b) => b.offerCount - a.offerCount);
+  else if (sortBy === 'newest') filtered.sort((a,b) => b.newestId - a.newestId);
+  else if (sortBy === 'opportunity') filtered.sort((a,b) => b.opportunity - a.opportunity);
+
+  document.getElementById('grid').innerHTML = filtered.map(renderCard).join('');
+  document.getElementById('results-info').textContent = 'Mostrando ' + filtered.length + ' de ' + PRODUCTS.length + ' produtos';
+
+  const lowComp = filtered.filter(p => p.competition === 'low').length;
+  const highScore = filtered.filter(p => p.score >= 110).length;
+  const newCount = filtered.filter(p => p.isNew).length;
+  const avgOpp = filtered.length ? Math.round(filtered.reduce((s,p) => s + p.opportunity, 0) / filtered.length) : 0;
+
+  document.getElementById('stats-row').innerHTML =
+    '<div class="stat-chip"><div class="num">' + PRODUCTS.length + '</div><div class="label">Produtos</div></div>' +
+    '<div class="stat-chip"><div class="num">' + newCount + '</div><div class="label">Novos Hoje</div></div>' +
+    '<div class="stat-chip"><div class="num">' + highScore + '</div><div class="label">Score 110+</div></div>' +
+    '<div class="stat-chip"><div class="num">' + lowComp + '</div><div class="label">Baixa Concorr.</div></div>' +
+    '<div class="stat-chip"><div class="num">' + avgOpp + '%</div><div class="label">Opp Media</div></div>';
+}
+
+function renderPills() {
+  const pillsEl = document.getElementById('cat-pills');
+  let html = '<span class="pill ' + (!activeCategory ? 'active' : '') + '" data-cat="">Todos</span>';
+  categories.forEach(c => {
+    html += '<span class="pill ' + (activeCategory === c ? 'active' : '') + '" data-cat="' + c + '">' + c + '</span>';
+  });
+  pillsEl.innerHTML = html;
+  pillsEl.querySelectorAll('.pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      activeCategory = pill.dataset.cat;
+      renderPills();
+      render();
+    });
+  });
+}
+
+document.getElementById('search').addEventListener('input', e => { searchTerm = e.target.value; render(); });
+document.getElementById('sort').addEventListener('change', e => { sortBy = e.target.value; render(); });
+document.getElementById('geo-filter').addEventListener('change', e => { geoFilter = e.target.value; render(); });
+
+renderPills();
+render();
+</script>
