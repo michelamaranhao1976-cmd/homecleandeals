@@ -1,0 +1,1167 @@
+[
+  {
+    "rank": 1,
+    "name": "Feilaira",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 195,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 2,
+    "name": "Blinzador",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 195,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 3,
+    "name": "MindWake",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 4,
+    "name": "Nail Defender",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 5,
+    "name": "Youth Within",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 6,
+    "name": "Glyco Barrier",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 7,
+    "name": "PhemmePure",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 150,
+    "variants": 1,
+    "score": 183
+  },
+  {
+    "rank": 8,
+    "name": "Lipo Jelly",
+    "category": "Nutra/Diet",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 220,
+    "variants": 1,
+    "score": 181
+  },
+  {
+    "rank": 9,
+    "name": "Thermo Ignite",
+    "category": "Nutra/Diet",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 220,
+    "variants": 1,
+    "score": 181
+  },
+  {
+    "rank": 10,
+    "name": "Nuubu Detox Foot Patches",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 40,
+    "variants": 5,
+    "score": 180
+  },
+  {
+    "rank": 11,
+    "name": "HorseFil",
+    "category": "Nutra/Male",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 235,
+    "variants": 1,
+    "score": 179
+  },
+  {
+    "rank": 12,
+    "name": "Military Honey",
+    "category": "Nutra/Male",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 235,
+    "variants": 1,
+    "score": 179
+  },
+  {
+    "rank": 13,
+    "name": "Flow Strong",
+    "category": "Nutra/Male",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 179
+  },
+  {
+    "rank": 14,
+    "name": "Soda Steel",
+    "category": "Nutra/Male",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 230,
+    "variants": 1,
+    "score": 179
+  },
+  {
+    "rank": 15,
+    "name": "Mind Honey Trick",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "BE",
+      "BG",
+      "CA",
+      "CH",
+      "CZ",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "HU",
+      "IE",
+      "IL",
+      "IT",
+      "MX",
+      "NL",
+      "NO",
+      "NZ",
+      "PL",
+      "PT",
+      "RO",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 26,
+    "payout": 215,
+    "variants": 1,
+    "score": 173
+  },
+  {
+    "rank": 16,
+    "name": "Driftly",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout",
+      "Checkout Event Tracking"
+    ],
+    "geos": [
+      "AT",
+      "BE",
+      "CH",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "IE",
+      "IT",
+      "NL",
+      "NO",
+      "PT",
+      "SE"
+    ],
+    "geo_count": 14,
+    "payout": 60,
+    "variants": 1,
+    "score": 98
+  },
+  {
+    "rank": 17,
+    "name": "Clensy",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout",
+      "Checkout Event Tracking"
+    ],
+    "geos": [
+      "AT",
+      "BE",
+      "CH",
+      "DE",
+      "DK",
+      "ES",
+      "FI",
+      "FR",
+      "IE",
+      "IT",
+      "NL",
+      "NO",
+      "PT",
+      "SE"
+    ],
+    "geo_count": 14,
+    "payout": 60,
+    "variants": 1,
+    "score": 98
+  },
+  {
+    "rank": 18,
+    "name": "Sun Coast Sciences Total Package Serum",
+    "category": "Health",
+    "tags": [
+      "Checkout Event Tracking"
+    ],
+    "geos": [
+      "AT",
+      "AU",
+      "CA",
+      "DE",
+      "IE",
+      "NZ",
+      "UK",
+      "US"
+    ],
+    "geo_count": 8,
+    "payout": 55,
+    "variants": 1,
+    "score": 88
+  },
+  {
+    "rank": 19,
+    "name": "Hearth & Haven Heater",
+    "category": "eCommerce",
+    "tags": [
+      "Checkout Event Tracking"
+    ],
+    "geos": [
+      "AU",
+      "CA",
+      "DE",
+      "IE",
+      "NZ",
+      "UK",
+      "US"
+    ],
+    "geo_count": 7,
+    "payout": 70,
+    "variants": 1,
+    "score": 85
+  },
+  {
+    "rank": 20,
+    "name": "OdorCrush Limescale Prevention Tablets",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "AU",
+      "CA",
+      "DE",
+      "FR",
+      "NO",
+      "NZ",
+      "SE",
+      "UK",
+      "US"
+    ],
+    "geo_count": 9,
+    "payout": 45,
+    "variants": 1,
+    "score": 85
+  },
+  {
+    "rank": 21,
+    "name": "Keilini Portable Heater",
+    "category": "eCommerce",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "AT",
+      "DE",
+      "DK",
+      "FR",
+      "NL",
+      "NO",
+      "SE",
+      "UK"
+    ],
+    "geo_count": 8,
+    "payout": 55,
+    "variants": 4,
+    "score": 79
+  },
+  {
+    "rank": 22,
+    "name": "Gentle Patches Dopamine Patches",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "AU",
+      "CA",
+      "NZ",
+      "UK",
+      "US"
+    ],
+    "geo_count": 5,
+    "payout": 55,
+    "variants": 1,
+    "score": 63
+  },
+  {
+    "rank": 23,
+    "name": "Keilini Heater Pro",
+    "category": "eCommerce",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "AT",
+      "DE",
+      "FR",
+      "NL",
+      "UK"
+    ],
+    "geo_count": 5,
+    "payout": 55,
+    "variants": 2,
+    "score": 58
+  },
+  {
+    "rank": 24,
+    "name": "Corevalin",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "AU",
+      "BE",
+      "CA",
+      "CH",
+      "FR",
+      "IL"
+    ],
+    "geo_count": 6,
+    "payout": 85,
+    "variants": 3,
+    "score": 54
+  },
+  {
+    "rank": 25,
+    "name": "Mobiflexi Joint Support",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "AU",
+      "CA",
+      "US"
+    ],
+    "geo_count": 3,
+    "payout": 85,
+    "variants": 3,
+    "score": 49
+  },
+  {
+    "rank": 26,
+    "name": "Glycopezil",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 90,
+    "variants": 1,
+    "score": 48
+  },
+  {
+    "rank": 27,
+    "name": "PureHealth Research Complete Vision",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 80,
+    "variants": 1,
+    "score": 48
+  },
+  {
+    "rank": 28,
+    "name": "Gluco Wave Glycogen Control",
+    "category": "Health",
+    "tags": [
+      "VSL"
+    ],
+    "geos": [
+      "UK"
+    ],
+    "geo_count": 1,
+    "payout": 55,
+    "variants": 1,
+    "score": 43
+  },
+  {
+    "rank": 29,
+    "name": "Arterix Blood Support Capsules",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "DK",
+      "FI",
+      "NO",
+      "SE"
+    ],
+    "geo_count": 4,
+    "payout": 65,
+    "variants": 2,
+    "score": 41
+  },
+  {
+    "rank": 30,
+    "name": "Power Heat Pro",
+    "category": "eCommerce",
+    "tags": [
+      "Checkout Event Tracking"
+    ],
+    "geos": [
+      "AT",
+      "CH",
+      "DE"
+    ],
+    "geo_count": 3,
+    "payout": 107,
+    "variants": 1,
+    "score": 40
+  },
+  {
+    "rank": 31,
+    "name": "Truly Free Home Laundry Wash",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 30,
+    "variants": 1,
+    "score": 35
+  },
+  {
+    "rank": 32,
+    "name": "Wamoma Smart Thermometer",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 50,
+    "variants": 1,
+    "score": 35
+  },
+  {
+    "rank": 33,
+    "name": "VacTonic",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 55,
+    "variants": 1,
+    "score": 35
+  },
+  {
+    "rank": 34,
+    "name": "LevelsRx GLP1",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "US"
+    ],
+    "geo_count": 1,
+    "payout": 325,
+    "variants": 1,
+    "score": 33
+  },
+  {
+    "rank": 35,
+    "name": "Glyvera",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "AT",
+      "DE"
+    ],
+    "geo_count": 2,
+    "payout": 70,
+    "variants": 1,
+    "score": 28
+  },
+  {
+    "rank": 36,
+    "name": "MetaBrew Diet Coffee",
+    "category": "Nutra/Diet",
+    "tags": [],
+    "geos": [
+      "AT",
+      "CH",
+      "DE"
+    ],
+    "geo_count": 3,
+    "payout": 55,
+    "variants": 1,
+    "score": 26
+  },
+  {
+    "rank": 37,
+    "name": "Fitralin",
+    "category": "Nutra/Diet",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "BE",
+      "FR"
+    ],
+    "geo_count": 2,
+    "payout": 60,
+    "variants": 1,
+    "score": 26
+  },
+  {
+    "rank": 38,
+    "name": "LeviaPatch",
+    "category": "Nutra/Diet",
+    "tags": [],
+    "geos": [
+      "UK"
+    ],
+    "geo_count": 1,
+    "payout": 50,
+    "variants": 1,
+    "score": 26
+  },
+  {
+    "rank": 39,
+    "name": "X-All Washing Machine Cleaner",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "AT",
+      "DE"
+    ],
+    "geo_count": 2,
+    "payout": 22,
+    "variants": 1,
+    "score": 25
+  },
+  {
+    "rank": 40,
+    "name": "Revintis Forte Gummies",
+    "category": "Health",
+    "tags": [
+      "Direct Checkout"
+    ],
+    "geos": [
+      "SE"
+    ],
+    "geo_count": 1,
+    "payout": 65,
+    "variants": 1,
+    "score": 23
+  },
+  {
+    "rank": 41,
+    "name": "GLPControl Plus",
+    "category": "Nutra/Diet",
+    "tags": [],
+    "geos": [
+      "BE",
+      "FR"
+    ],
+    "geo_count": 2,
+    "payout": 58,
+    "variants": 1,
+    "score": 21
+  },
+  {
+    "rank": 42,
+    "name": "HeatGuard Gloves",
+    "category": "eCommerce",
+    "tags": [],
+    "geos": [
+      "FR"
+    ],
+    "geo_count": 1,
+    "payout": 40,
+    "variants": 1,
+    "score": 20
+  },
+  {
+    "rank": 43,
+    "name": "Omnipurge",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "ES"
+    ],
+    "geo_count": 1,
+    "payout": 60,
+    "variants": 1,
+    "score": 18
+  },
+  {
+    "rank": 44,
+    "name": "Glumentrol Capsules",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "FR"
+    ],
+    "geo_count": 1,
+    "payout": 55,
+    "variants": 1,
+    "score": 18
+  },
+  {
+    "rank": 45,
+    "name": "Vivera SanoFlex Forte",
+    "category": "Health",
+    "tags": [],
+    "geos": [
+      "CH"
+    ],
+    "geo_count": 1,
+    "payout": 65,
+    "variants": 1,
+    "score": 18
+  },
+  {
+    "rank": 46,
+    "name": "Pb-Sin 18 Diet Supplements",
+    "category": "Nutra/Diet",
+    "tags": [],
+    "geos": [
+      "IT"
+    ],
+    "geo_count": 1,
+    "payout": 75,
+    "variants": 1,
+    "score": 16
+  },
+  {
+    "rank": 47,
+    "name": "Velomi GLP-1 Gummies",
+    "category": "Nutra/Diet",
+    "tags": [],
+    "geos": [
+      "SE"
+    ],
+    "geo_count": 1,
+    "payout": 60,
+    "variants": 1,
+    "score": 16
+  },
+  {
+    "rank": 48,
+    "name": "TestoBoost",
+    "category": "Nutra/Male",
+    "tags": [],
+    "geos": [
+      "IT"
+    ],
+    "geo_count": 1,
+    "payout": 65,
+    "variants": 1,
+    "score": 14
+  },
+  {
+    "rank": 49,
+    "name": "Vigora XL",
+    "category": "Nutra/Male",
+    "tags": [],
+    "geos": [
+      "FR"
+    ],
+    "geo_count": 1,
+    "payout": 70,
+    "variants": 1,
+    "score": 14
+  },
+  {
+    "rank": 50,
+    "name": "Testo Blue",
+    "category": "Nutra/Male",
+    "tags": [],
+    "geos": [
+      "NL"
+    ],
+    "geo_count": 1,
+    "payout": 60,
+    "variants": 1,
+    "score": 14
+  }
+]
